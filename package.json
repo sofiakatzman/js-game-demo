@@ -1,0 +1,14 @@
+{
+  "name": "create-game",
+  "version": "1.0.0",
+  "description": "This is an intro series for game dev with js.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Sofia Katzman",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
