@@ -8,9 +8,9 @@ const GAME_WIDTH = 800;
 
 let player;
 
-const UP_KEY = 87;
-const DOWN_KEY = 83;
-const LEFT_KEY = 65;
-const RIGHT_KEY = 68;
+const UP_KEY = 38; //87 = w
+const DOWN_KEY = 40; //83 = s
+const LEFT_KEY = 37; //65 = a
+const RIGHT_KEY = 39; //68 = d
 
 
