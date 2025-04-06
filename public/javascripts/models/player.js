@@ -16,6 +16,7 @@ class Player{
         this.yspeed=0;
         this.addMovement = this.addMovement.bind(this);
         this.stopMovement = this.stopMovement.bind(this);
+        this.fireLaserBeam = this.fireLaserBeam.bind(this);
     }
 
     controls(){
@@ -100,6 +101,14 @@ class Player{
         switch (e.keyCode){
             case SPACE_BAR:
                 console.log("pew pew!");
+                let laserBeamAttr = {};
+                if(this.direction.up){
+                    laserBeamAttr.height = 25;
+                    laserBeamAttr.width = 3;
+                    laserBeamAttr.y = this.y - laserBeamAttr.height - 5;
+                    laserBeamAttr.x = this.x + 8;
+                }
+                new Laserbeam(laserBeamAttr)
                 break;
         }
     }

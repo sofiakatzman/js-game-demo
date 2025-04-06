@@ -8,14 +8,15 @@ function drawBackground(){
 }
 
 function update(){
-    console.log('xspeed', player.xspeed)
-    console.log('yspeed', player.yspeed)
+    // console.log('xspeed', player.xspeed)
+    // console.log('yspeed', player.yspeed)
     player.update();
 }
 
 function draw(){
     drawBackground();
     player.draw();
+    Laserbeam.all.forEach(laserbeam => laserbeam.draw())
 }
 
 function gameLoop(){
