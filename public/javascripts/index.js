@@ -8,7 +8,9 @@ function drawBackground(){
 }
 
 function update(){
-
+    console.log('xspeed', player.xspeed)
+    console.log('yspeed', player.yspeed)
+    player.update();
 }
 
 function draw(){
@@ -26,6 +28,8 @@ function gameLoop(){
 
 function setup(){
     player = new Player();
+    player.controls();
+
     animate(gameLoop)
 }
 
