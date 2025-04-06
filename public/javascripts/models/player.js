@@ -25,6 +25,7 @@ class Player{
     setupMovement(){
         document.addEventListener('keydown', this.addMovement)
         document.addEventListener('keyup', this.stopMovement)
+        document.addEventListener('keydown', this.fireLaserBeam)
     }
 
     addMovement(e){
@@ -91,6 +92,14 @@ class Player{
                 break;
             case RIGHT_KEY:
                 this.xspeed = 0;
+                break;
+        }
+    }
+
+    fireLaserBeam(e){
+        switch (e.keyCode){
+            case SPACE_BAR:
+                console.log("pew pew!");
                 break;
         }
     }
