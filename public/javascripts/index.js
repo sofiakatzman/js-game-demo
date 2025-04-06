@@ -1,13 +1,33 @@
+function clearFrame(){
+    ctx.clearRect(0,0,GAME_WIDTH, GAME_HEIGHT)
+}
+
 function drawBackground(){
     ctx.fillStyle = "rgb(0, 0, 0)";
     ctx.fillRect(0,0, GAME_WIDTH, GAME_HEIGHT);
 }
 
-function setup(){
-    drawBackground();
+function update(){
+
 }
 
+function draw(){
+    drawBackground();
+    player.draw();
+}
 
+function gameLoop(){
+    clearFrame()
+    update()
+    draw()
+
+    animate(gameLoop)
+}
+
+function setup(){
+    player = new Player();
+    animate(gameLoop)
+}
 
 document.addEventListener('DOMContentLoaded', function(){
     setup()
