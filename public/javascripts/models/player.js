@@ -28,28 +28,48 @@ class Player{
     }
 
     addMovement(e){
-        console.log(e);
+        // console.log(e);
         switch(e.keyCode){
             case UP_KEY:
-                this.yspeed = -1;
+                if(this.y >= 0){
+                    this.yspeed = -2;
+                } else{
+                    this.yspeed = 0;
+                    this.y = 0;
+                }
                 this.xspeed = 0;
                 this.resetDirection();
                 this.direction.up = true;
                 break;
             case DOWN_KEY:
-                this.yspeed = 1;
+                if(this.y < (GAME_HEIGHT - this.height)){
+                    this.yspeed = 2;
+                }else{
+                    this.yspeed = 0;
+                    this.y = GAME_HEIGHT - this.height
+                }
                 this.xspeed = 0;
                 this.resetDirection();
                 this.direction.down = true;
                 break;
             case LEFT_KEY:
-                this.xspeed = -1;
+                if (this.x > 0){
+                    this.xspeed = -2;
+                }else {
+                    this.xspeed = 0;
+                    this.x = 0;
+                }
                 this.yspeed = 0;
                 this.resetDirection();
                 this.direction.left = true;
                 break;
             case RIGHT_KEY:
-                this.xspeed = 1;
+                if (this.x < (GAME_WIDTH - this.width)){
+                    this.xspeed = 2;
+                }else {
+                    this.xspeed = 0;
+                    this.x = GAME_WIDTH - this.width;
+                }
                 this.yspeed = 0;
                 this.resetDirection();
                 this.direction.right = true;
@@ -58,7 +78,7 @@ class Player{
     }
 
     stopMovement(e){
-        console.log(e);
+        // console.log(e);
         switch(e.keyCode){
             case UP_KEY:
                 this.yspeed = 0;
