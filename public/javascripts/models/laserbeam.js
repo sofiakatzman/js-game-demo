@@ -6,11 +6,30 @@ class Laserbeam{
         this.width = attr.width;
         this.height = attr.height;
         this.color = 'green';
+        this.direction = attr.direction;
+        this.speed = 2;
         Laserbeam.all.push(this);
     }
 
     update(){
+        if(this.direction == "up"){
+            this.y = this.y - this.speed
+        }
+        if(this.direction == "down"){
+            this.y = this.y + this.speed
+        }
+        if(this.direction == "left"){
+            this.x = this.x - this.speed
+        }
+        if(this.direction == "right"){
+            this.x = this.x + this.speed
+        }
 
+        //remove laser beams when they leave bound box 
+        if(this.y <= 0 || this.y >= GAME_HEIGHT || this. x <= 0 || this.x >= GAME_WIDTH){
+            let index = Laserbeam.all.indexOf(this);
+            Laserbeam.all.splice(index, 1)
+        }
     }
 
     draw(){

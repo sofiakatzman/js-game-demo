@@ -16,6 +16,7 @@ class Player{
         this.yspeed=0;
         this.addMovement = this.addMovement.bind(this);
         this.stopMovement = this.stopMovement.bind(this);
+        this.canFire = true;
         this.fireLaserBeam = this.fireLaserBeam.bind(this);
     }
 
@@ -100,15 +101,38 @@ class Player{
     fireLaserBeam(e){
         switch (e.keyCode){
             case SPACE_BAR:
-                console.log("pew pew!");
-                let laserBeamAttr = {};
-                if(this.direction.up){
-                    laserBeamAttr.height = 25;
-                    laserBeamAttr.width = 3;
-                    laserBeamAttr.y = this.y - laserBeamAttr.height - 5;
-                    laserBeamAttr.x = this.x + 8;
+                if(this.canFire == true){
+                    console.log("pew pew!");
+                    let laserBeamAttr = {};
+                    if(this.direction.up){
+                        laserBeamAttr.height = 25;
+                        laserBeamAttr.width = 5;
+                        laserBeamAttr.y = this.y - laserBeamAttr.height - 5;
+                        laserBeamAttr.x = this.x + 7.5;
+                        laserBeamAttr.direction = "up";
+                    } else if(this.direction.down){
+                        laserBeamAttr.height = 25;
+                        laserBeamAttr.width = 5;
+                        laserBeamAttr.y = this.y + laserBeamAttr.height + 5;
+                        laserBeamAttr.x = this.x + 7.5;
+                        laserBeamAttr.direction = "down";
+                    } else if(this.direction.left){
+                        laserBeamAttr.height = 5;
+                        laserBeamAttr.width = 25;
+                        laserBeamAttr.x = this.x - laserBeamAttr.width - 5;
+                        laserBeamAttr.y = this.y + 7.5;
+                        laserBeamAttr.direction = "left";
+                    } else if(this.direction.right){
+                        laserBeamAttr.height = 5;
+                        laserBeamAttr.width = 25;
+                        laserBeamAttr.x = this.x + laserBeamAttr.width + 5;
+                        laserBeamAttr.y = this.y + 7.5;
+                        laserBeamAttr.direction = "right";
+                    } 
+                    new Laserbeam(laserBeamAttr)
+                    this.canFire = false;
+                    setTimeout(()=> this.canFire = true, 500)
                 }
-                new Laserbeam(laserBeamAttr)
                 break;
         }
     }

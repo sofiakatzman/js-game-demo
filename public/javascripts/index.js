@@ -11,6 +11,7 @@ function update(){
     // console.log('xspeed', player.xspeed)
     // console.log('yspeed', player.yspeed)
     player.update();
+    Laserbeam.all.forEach(laserbeam => laserbeam.update())
 }
 
 function draw(){
