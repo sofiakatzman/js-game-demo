@@ -26,7 +26,7 @@ class Laserbeam{
         }
 
         //remove laser beams when they leave bound box 
-        if(this.y <= 0 || this.y >= GAME_HEIGHT || this. x <= 0 || this.x >= GAME_WIDTH){
+        if(this.y <= 0 || this.y >= GAME_HEIGHT || this. x <= 0 || this.x + this.width >= GAME_WIDTH){
             let index = Laserbeam.all.indexOf(this);
             Laserbeam.all.splice(index, 1)
         }
