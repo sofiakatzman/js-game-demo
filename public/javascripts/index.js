@@ -12,12 +12,14 @@ function update(){
     // console.log('yspeed', player.yspeed)
     player.update();
     Laserbeam.all.forEach(laserbeam => laserbeam.update())
+    Opponent.all.forEach(opponent => opponent.update())
 }
 
 function draw(){
     drawBackground();
     player.draw();
     Laserbeam.all.forEach(laserbeam => laserbeam.draw())
+    Opponent.all.forEach(op => op.draw());
 }
 
 function gameLoop(){
@@ -31,7 +33,8 @@ function gameLoop(){
 function setup(){
     player = new Player();
     player.controls();
-
+    new Opponent();
+    
     animate(gameLoop)
 }
 
